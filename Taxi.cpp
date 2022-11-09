@@ -24,8 +24,6 @@ void Complaints_A();			//Michal - NOT DONE
 
 int main() //Nathan
 {
-
-
 	int op;
 	cout << "|-\tTAIX SYSTEM\t-|\n\n" << endl;
 	cout << "| Press 1 to USER LOGIN" << endl;
@@ -66,7 +64,13 @@ void Registration() //Nathan
 	char New_Pass[20];
 	char Current_Name[20];
 
-	fstream View("Records.txt", ios::in);
+	fstream View("Records.txt", ios::app);
+	if (!View)		//Checks to see if file did not open
+	{
+		cout << "\t| Message Feed |\n" << endl;
+		cout << "Login data file was not loaded..." << endl;
+		main();
+	}
 
 	system("cls");
 	cout << "\t| Registration Menu |\n\n" << endl;
@@ -106,7 +110,6 @@ void Login_U()//Nathan
 	char User_Pass[20];			//Checking Stored
 
 	fstream View("Records.txt", ios::in);		//Opens Records File
-
 	if (!View)		//Checks to see if file did not open
 	{
 		cout << "\t| Message Feed |\n" << endl;
