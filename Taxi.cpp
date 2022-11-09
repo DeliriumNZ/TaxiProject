@@ -24,17 +24,17 @@ void Complaints_A();			//Michal - NOT DONE
 
 int main() //Nathan
 {
-	int op;
+	int Option;
 	cout << "|-\tTAIX SYSTEM\t-|\n\n" << endl;
 	cout << "| Press 1 to USER LOGIN" << endl;
 	cout << "| Press 2 to ADMIN LOGIN" << endl;
 	cout << "| Press 3 to REGISTER" << endl;
 	cout << "| Press 4 to EXIT" << endl;
 	cout << "\n\t Option: ";
-	cin >> op;
+	cin >> Option;
 	cout << endl;
 
-	switch (op)
+	switch (Option)
 	{
 	case 1:
 		Login_U();
@@ -153,16 +153,16 @@ void Login_U()//Nathan
 void Portal_U()
 {
 	cout << "\t| User Taxi Portal |\n\n" << endl;
-	int op;
+	int Option;
 	cout << "| Press 1 to - Book a trip	" << endl;
 	cout << "| Press 2 to - View booked trips" << endl;
 	cout << "| Press 3 to - Submit a complaint" << endl;
 	cout << "| Press 4 to - See Lost & Found" << endl;
 	cout << "| Press 5 to - Logout" << endl;
 	cout << "\n\n\t Option: ";
-	cin >> op;
+	cin >> Option;
 	cout << endl;
-	switch (op)
+	switch (Option)
 	{
 	case 1:
 		system("cls");
@@ -231,7 +231,7 @@ void Login_A()//Nathan
 }
 void Portal_A()//Nathan
 {
-	int op;
+	int Option;
 
 	cout << "\t| Admin Portal	|\n\n" << endl;
 	cout << "| Press 1 to - See Registered Customers" << endl;
@@ -241,10 +241,10 @@ void Portal_A()//Nathan
 	cout << "| Press 5 to - See Complants" << endl;
 	cout << "| Press 6 to - Logout" << endl;
 	cout << "\n\t Option: ";
-	cin >> op;
+	cin >> Option;
 	cout << endl;
 
-	switch (op)
+	switch (Option)
 	{
 	case 1:
 		system("cls");
