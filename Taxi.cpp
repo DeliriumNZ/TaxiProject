@@ -25,7 +25,7 @@ void Complaints_A();			//Michal - NOT DONE
 int main() //Nathan
 {
 	int op;
-	cout << "|-\tTAIX SYSTEM\t-|\n\n" << endl;
+	cout << "|-\tTAXI SYSTEM\t-|\n\n" << endl;
 	cout << "| Press 1 to USER LOGIN" << endl;
 	cout << "| Press 2 to ADMIN LOGIN" << endl;
 	cout << "| Press 3 to REGISTER" << endl;
@@ -49,7 +49,7 @@ int main() //Nathan
 		break;
 
 	case 4:
-		cout << "Cloing application...\n";
+		cout << "Closing application...\n";
 		system("pause");
 		exit(0);
 
@@ -238,7 +238,7 @@ void Portal_A()//Nathan
 	cout << "| Press 2 to - Add or Remove Drivers" << endl;
 	cout << "| Press 3 to - See all Booked Trips" << endl;
 	cout << "| Press 4 to - Add to Lost & Found" << endl;
-	cout << "| Press 5 to - See Complants" << endl;
+	cout << "| Press 5 to - See Complaints" << endl;
 	cout << "| Press 6 to - Logout" << endl;
 	cout << "\n\t Option: ";
 	cin >> op;
