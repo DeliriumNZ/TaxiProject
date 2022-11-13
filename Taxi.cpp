@@ -18,6 +18,9 @@ void Login_A();					//Nathan - DONE
 void Portal_A();				//Nathan - DONE
 void RegisteredCustomers_A();	//Michal - DONE
 void Drivers_A();				//Michal - NOT DONE
+void See_Drivers();
+void Add_Driver();
+void Delete_Driver();
 void BookedTrips_A();			//Michal - NOT DONE
 void LostFound_A();				//Michal - NOT DONE
 void Complaints_A();			//Michal - NOT DONE
@@ -285,66 +288,15 @@ void RegisteredCustomers_A()//Michal
 }
 
 //Drivers Menu
-void See_Drivers() 
-{
-	fstream myFile;
-		myFile.open ("Drivers.txt", ios::in); 
-		if (myFile.is_open()) {
-			string line;
-			while (getline(myFile, line)) {
-				cout << line << endl;
-		}
-		myFile.close();
-		Drivers_A();
-		}
-}
-
-void Add_Driver() 
-{
-	fstream myFile;
-		string line;
-		cout << "Driver name:" << endl;
-		cin.ignore(); 
-		getline(cin,line);
-		myFile.open ("Drivers.txt", ios::app); 
-		if (myFile.is_open()) {
-			myFile << line << endl;
-		}
-		myFile.close();
-		Drivers_A();
-}
-void Delete_Driver()
-{
-	string deleteline, line;
-	ifstream in ("Drivers.txt");
-	if (!in.is_open()){
-		cout << "Input file failed to open\n";
-		}
-	ofstream out("outfile.txt");
-	cout << "Please type the driver you would like to delete" << endl;
-	cin >> deleteline;
-	while (getline(in, line)){
-		if (line != deleteline)
-		out << line << endl;
-	}
-	in.close();
-	out.close();
-	remove("Drivers.txt");
-	rename("outfile.txt", "Drivers.txt");
-	cout << "Driver been deleted" << endl;
-	Drivers_A();
-}
-
-
 void Drivers_A()//Michal
 {
 	int Option;
 
-	cout << "\t| Drivers Portal	|\n\n" << endl;
-	cout << "| Press 1 to - See Registered Drivers" << endl;
-	cout << "| Press 2 to - Add Driver" << endl;
-	cout << "| Press 3 to - Remove Driver" << endl;
-	cout << "| Press 4 to - Go back to Admin Portal" << endl;
+	cout << "\t| Drivers Portal|\n\n" << endl;
+	cout << "| Press 1 to - View Registered Drivers" << endl;
+	cout << "| Press 2 to - Add Drivers" << endl;
+	cout << "| Press 3 to - Remove Drivers" << endl;
+	cout << "| Press 4 to - Main Menu" << endl;
 	cout << "\n\t Option: ";
 	cin >> Option;
 	cout << endl;
@@ -352,15 +304,15 @@ void Drivers_A()//Michal
 	switch (Option)
 	{
 	case 1:
-		system("clear");
+		system("cls");
 		See_Drivers();
-		
+
 	case 2:
-		system("clear");
+		system("cls");
 		Add_Driver();
 
 	case 3:
-		system("clear");
+		system("cls");
 		Delete_Driver();
 
 	case 4:
@@ -372,7 +324,77 @@ void Drivers_A()//Michal
 		cout << "Please pick a valid option." << endl;
 	}
 }
+void See_Drivers() 
+{
+	fstream myFile;
+		myFile.open ("Drivers.txt", ios::in); 
+		cout << "\t| Drivers Portal|\n\n" << endl;
+		cout << "Avaliable Drivers:\n\n";
+		if (myFile.is_open()) 
+		{
+			string Line;
+			while (getline(myFile, Line))
+			{
+				cout << Line << endl;
+			}
+			myFile.close();
+			system("pause");
+			system("cls");
+			Drivers_A();
+		}
+}
 
+void Add_Driver() 
+{
+	fstream myFile;
+		string Line;
+		cout << "\t| Drivers Portal|\n\n" << endl;
+		cout << "Driver name: ";
+		cin.ignore(); 
+		getline(cin, Line);
+		myFile.open ("Drivers.txt", ios::app); 
+		if (myFile.is_open())
+		{
+			myFile << Line << endl;
+		}
+		myFile.close();
+		system("cls");
+		cout << "\t| Message Feed |\n" << endl;
+		cout << "New driver added\n\n";
+		Drivers_A();
+}
+
+void Delete_Driver()
+{
+	string Delete_Line, Line;
+
+	ifstream In ("Drivers.txt");
+	if (!In.is_open())
+	{
+		system("cls");
+		cout << "\t| Message Feed |\n\n" << endl;
+		cout << "Input file failed to open\n";
+		Drivers_A();
+	}
+
+	ofstream Out("outfile.txt");
+	cout << "\t| Drivers Portal|\n" << endl;
+	cout << "Enter the drivers name: ";
+	cin >> Delete_Line;
+	while (getline(In, Line))
+	{
+		if (Line != Delete_Line)
+		Out << Line << endl;
+	}
+	In.close();
+	Out.close();
+	remove("Drivers.txt");
+	rename("outfile.txt", "Drivers.txt");
+	system("cls");
+	cout << "\t| Message Feed |\n" << endl;
+	cout << "Selected driver has been deleted.\n\n" << endl;
+	Drivers_A();
+}
 
 void BookedTrips_A()//Michal
 {
