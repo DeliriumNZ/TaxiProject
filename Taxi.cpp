@@ -17,6 +17,9 @@ void Login_A();					//Nathan - DONE
 void Portal_A();				//Nathan - DONE
 void RegisteredCustomers_A();	//Michal - NOT DONE
 void Drivers_A();				//Michal - NOT DONE
+void See_Drivers();
+void Add_Driver();
+void Delete_Driver();
 void BookedTrips_A();			//Michal - NOT DONE
 void LostFound_A();				//Michal - NOT DONE
 void Complaints_A();			//Michal - NOT DONE
@@ -274,10 +277,41 @@ void RegisteredCustomers_A()//Michal
 }
 void Drivers_A()//Michal
 {
+	int Option;
 
+	cout << "\t| Drivers Portal|\n\n" << endl;
+	cout << "| Press 1 to - View Registered Drivers" << endl;
+	cout << "| Press 2 to - Add Drivers" << endl;
+	cout << "| Press 3 to - Remove Drivers" << endl;
+	cout << "| Press 4 to - Main Menu" << endl;
+	cout << "\n\t Option: ";
+	cin >> Option;
+	cout << endl;
+
+	switch (Option)
+	{
+	case 1:
+		system("cls");
+		See_Drivers();
+
+	case 2:
+		system("cls");
+		Add_Driver();
+
+	case 3:
+		system("cls");
+		Delete_Driver();
+
+	case 4:
+		system("cls");
+		Portal_A();
+
+	default:
+		system("cls");
+		cout << "Please pick a valid option." << endl;
+	}
 }
-<<<<<<< Updated upstream
-=======
+
 void See_Drivers() 
 {
 	fstream myFile;
@@ -350,8 +384,6 @@ void Delete_Driver()
 	cout << "Selected driver has been deleted.\n\n" << endl;
 	Drivers_A();
 }
-
->>>>>>> Stashed changes
 void BookedTrips_A()//Michal
 {
 
