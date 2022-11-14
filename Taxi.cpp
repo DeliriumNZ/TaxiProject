@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include <string.h>
 using namespace std;
 
 //Calling all functions first
@@ -16,11 +15,8 @@ void LostFound_U();				//Henry - NOT DONE
 //Admin Functions
 void Login_A();					//Nathan - DONE
 void Portal_A();				//Nathan - DONE
-void RegisteredCustomers_A();	//Michal - DONE
+void RegisteredCustomers_A();	//Michal - NOT DONE
 void Drivers_A();				//Michal - NOT DONE
-void See_Drivers();
-void Add_Driver();
-void Delete_Driver();
 void BookedTrips_A();			//Michal - NOT DONE
 void LostFound_A();				//Michal - NOT DONE
 void Complaints_A();			//Michal - NOT DONE
@@ -29,7 +25,7 @@ void Complaints_A();			//Michal - NOT DONE
 int main() //Nathan
 {
 	int Option;
-	cout << "|-\tTAXI SYSTEM\t-|\n\n" << endl;
+	cout << "|-\tTAIX SYSTEM\t-|\n\n" << endl;
 	cout << "| Press 1 to USER LOGIN" << endl;
 	cout << "| Press 2 to ADMIN LOGIN" << endl;
 	cout << "| Press 3 to REGISTER" << endl;
@@ -274,56 +270,14 @@ void Portal_A()//Nathan
 }
 void RegisteredCustomers_A()//Michal
 {
-	fstream myFile;
-	myFile.open ("Records.txt", ios::in); 
-	if (myFile.is_open()) {
-		string line;
-		while (getline(myFile, line)) {
-			cout << line << endl;
-		}
-		myFile.close();
-		Portal_A();
-	}
 
 }
-
-//Drivers Menu
 void Drivers_A()//Michal
 {
-	int Option;
 
-	cout << "\t| Drivers Portal|\n\n" << endl;
-	cout << "| Press 1 to - View Registered Drivers" << endl;
-	cout << "| Press 2 to - Add Drivers" << endl;
-	cout << "| Press 3 to - Remove Drivers" << endl;
-	cout << "| Press 4 to - Main Menu" << endl;
-	cout << "\n\t Option: ";
-	cin >> Option;
-	cout << endl;
-
-	switch (Option)
-	{
-	case 1:
-		system("cls");
-		See_Drivers();
-
-	case 2:
-		system("cls");
-		Add_Driver();
-
-	case 3:
-		system("cls");
-		Delete_Driver();
-
-	case 4:
-		system("cls");
-		Portal_A();
-
-	default:
-		system("cls");
-		cout << "Please pick a valid option." << endl;
-	}
 }
+<<<<<<< Updated upstream
+=======
 void See_Drivers() 
 {
 	fstream myFile;
@@ -380,7 +334,8 @@ void Delete_Driver()
 	ofstream Out("outfile.txt");
 	cout << "\t| Drivers Portal|\n" << endl;
 	cout << "Enter the drivers name: ";
-	cin >> Delete_Line;
+	cin.ignore(); 
+	getline(cin, Delete_Line);
 	while (getline(In, Line))
 	{
 		if (Line != Delete_Line)
@@ -396,6 +351,7 @@ void Delete_Driver()
 	Drivers_A();
 }
 
+>>>>>>> Stashed changes
 void BookedTrips_A()//Michal
 {
 
