@@ -16,7 +16,7 @@ void LostFound_U();				//Henry - NOT DONE
 void Login_A();					//Nathan - DONE
 void Portal_A();				//Nathan - DONE
 void RegisteredCustomers_A();	//Michal - NOT DONE
-void Drivers_A();				//Michal - NOT DONE
+void DriversMenu_A();				//Michal - NOT DONE
 void See_Drivers();
 void Add_Driver();
 void Delete_Driver();
@@ -254,7 +254,7 @@ void Portal_A()//Nathan
 		RegisteredCustomers_A();
 	case 2:
 		system("cls");
-		Drivers_A();
+		DriversMenu_A();
 	case 3:
 		system("cls");
 		BookedTrips_A();
@@ -275,7 +275,7 @@ void RegisteredCustomers_A()//Michal
 {
 
 }
-void Drivers_A()//Michal
+void DriversMenu_A()//Michal
 {
 	int Option;
 
@@ -311,7 +311,6 @@ void Drivers_A()//Michal
 		cout << "Please pick a valid option." << endl;
 	}
 }
-
 void See_Drivers() 
 {
 	fstream myFile;
@@ -328,10 +327,9 @@ void See_Drivers()
 			myFile.close();
 			system("pause");
 			system("cls");
-			Drivers_A();
+			DriversMenu_A();
 		}
 }
-
 void Add_Driver() 
 {
 	fstream myFile;
@@ -349,9 +347,8 @@ void Add_Driver()
 		system("cls");
 		cout << "\t| Message Feed |\n" << endl;
 		cout << "New driver added\n\n";
-		Drivers_A();
+		DriversMenu_A();
 }
-
 void Delete_Driver()
 {
 	string Delete_Line, Line;
@@ -362,7 +359,7 @@ void Delete_Driver()
 		system("cls");
 		cout << "\t| Message Feed |\n\n" << endl;
 		cout << "Input file failed to open\n";
-		Drivers_A();
+		DriversMenu_A();
 	}
 
 	ofstream Out("outfile.txt");
@@ -382,8 +379,9 @@ void Delete_Driver()
 	system("cls");
 	cout << "\t| Message Feed |\n" << endl;
 	cout << "Selected driver has been deleted.\n\n" << endl;
-	Drivers_A();
+	DriversMenu_A();
 }
+
 void BookedTrips_A()//Michal
 {
 
