@@ -315,22 +315,28 @@ void Add_Driver()
 }
 void Delete_Driver()
 {
-	string deleteline, line;
-	ifstream in ("Drivers.txt");
-	if (!in.is_open()){
+	string deleteline, line, position;
+	ifstream fin; 
+	fin.open("Drivers.txt");
+	if (!fin.is_open()){
 		cout << "Input file failed to open\n";
 		}
 	ofstream out("outfile.txt");
 	cout << "Please type the driver you would like to delete" << endl;
-	cin >> deleteline;
-	while (getline(in, line)){
-		if (line != deleteline)
-		out << line << endl;
-	}
-	in.close();
-	out.close();
-	remove("Drivers.txt");
-	rename("outfile.txt", "Drivers.txt");
+	cin.ignore(); 
+    getline(cin, deleteline);
+	cout << deleteline;
+
+	while (getline(fin, line)){
+        if (line != deleteline){
+        out << line << endl;
+		}
+    }
+    fin.close();
+    out.close();
+    remove("Drivers.txt");
+    rename("outfile.txt", "Drivers.txt");
+
 	cout << "Driver been deleted" << endl;
 	Drivers_A();
 }
