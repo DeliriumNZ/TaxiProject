@@ -476,12 +476,9 @@ void BookedTrips_A()//Michal
 {
 fstream myFile;
 		myFile.open ("BookedTrips.txt", ios::in); 
-<<<<<<< Updated upstream
 		cout << "All booked trips:\n\n";
-=======
 		cout << "\t| View the booked trips |\n\n" << endl;
 		cout << "Booked Trips:\n\n";
->>>>>>> Stashed changes
 		if (myFile.is_open()) 
 		{
 			string Line;
