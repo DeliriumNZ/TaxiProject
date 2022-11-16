@@ -20,14 +20,14 @@ void Login_A();					//Nathan - DONE
 void Portal_A();				//Nathan - DONE
 void RegisteredCustomers_A();	//Michal - DONE
 void DriversMenu_A();			//Michal - DONE
-void See_Drivers();				//Michal - DONE
-void Add_Driver();				//Michal - DONE
-void Delete_Driver();			//Michal - DONE
+void SeeDrivers();				//Michal - DONE
+void AddDriver();				//Michal - DONE
+void DeleteDriver();			//Michal - DONE
 void BookedTrips_A();			//Michal - DONE
 void LostFound_A();				//Michal - DONE
-void See_LostFound();			//Michal - DONE
-void Add_Item();				//Michal - DONE
-void Delete_Item();				//Michal - DONE
+void SeeLostFound();			//Michal - DONE
+void AddItem();				//Michal - DONE
+void DeleteItem();				//Michal - DONE
 void Complaints_A();			//Michal - DONE
 
 //End of function calls
@@ -164,11 +164,11 @@ void Portal_U()
 {
 	cout << "\t| User Taxi Portal |\n\n" << endl;
 	int Option;
-	cout << "| Press 1 to - Book a trip	" << endl;
-	cout << "| Press 2 to - View booked trips" << endl;
-	cout << "| Press 3 to - Cal Trip" << endl; //WIP
-	cout << "| Press 4 to - Submit a complaint" << endl;
-	cout << "| Press 5 to - See Lost & Found" << endl;
+	cout << "| Press 1 to - Book a Trip	" << endl;
+	cout << "| Press 2 to - View Booked Trips" << endl;
+	cout << "| Press 3 to - Calculate Trip" << endl; //WIP
+	cout << "| Press 4 to - Submit a Complaint" << endl;
+	cout << "| Press 5 to - Lost & Found" << endl;
 	cout << "| Press 6 to - Logout" << endl;
 	cout << "\n\n\t Option: ";
 	cin >> Option;
@@ -338,7 +338,7 @@ string NameUser, NameDriver;
 		Complaints << " Complaint: " << Complaint << endl;
 		Complaints << "=======" << endl;
 		system("cls");
-		cout << "Complaint Sent";
+		cout << "Complaint Submitted!";
 		Portal_U();
 	}
 	else
@@ -391,11 +391,11 @@ void Portal_A()//Nathan
 	int Option;
 
 	cout << "\t| Admin Portal	|\n\n" << endl;
-	cout << "| Press 1 to - See Registered Customers" << endl;
-	cout << "| Press 2 to - Add or Remove Drivers" << endl;
-	cout << "| Press 3 to - See all Booked Trips" << endl;
-	cout << "| Press 4 to - Add to Lost & Found" << endl;
-	cout << "| Press 5 to - See Complaints" << endl;
+	cout << "| Press 1 to - View Registered Customers" << endl;
+	cout << "| Press 2 to - Add/Remove Drivers" << endl;
+	cout << "| Press 3 to - View Booked Trips" << endl;
+	cout << "| Press 4 to - Lost & Found" << endl;
+	cout << "| Press 5 to - View Complaints" << endl;
 	cout << "| Press 6 to - Logout" << endl;
 	cout << "\n\t Option: ";
 	cin >> Option;
@@ -449,7 +449,7 @@ void DriversMenu_A()//Michal
 	int Option;
 
 	cout << "\t| Drivers Portal|\n\n" << endl;
-	cout << "| Press 1 to - View Registered Drivers" << endl;
+	cout << "| Press 1 to - View Drivers" << endl;
 	cout << "| Press 2 to - Add Drivers" << endl;
 	cout << "| Press 3 to - Remove Drivers" << endl;
 	cout << "| Press 4 to - Main Menu" << endl;
@@ -461,15 +461,15 @@ void DriversMenu_A()//Michal
 	{
 	case 1:
 		system("cls");
-		See_Drivers();
+		SeeDrivers();
 
 	case 2:
 		system("cls");
-		Add_Driver();
+		AddDriver();
 
 	case 3:
 		system("cls");
-		Delete_Driver();
+		DeleteDriver();
 
 	case 4:
 		system("cls");
@@ -480,7 +480,7 @@ void DriversMenu_A()//Michal
 		cout << "Please pick a valid option." << endl;
 	}
 }
-void See_Drivers() 
+void SeeDrivers() 
 {
 	fstream myFile;
 		myFile.open ("Drivers.txt", ios::in); 
@@ -499,7 +499,7 @@ void See_Drivers()
 			DriversMenu_A();
 		}
 }
-void Add_Driver() 
+void AddDriver() 
 {
 	fstream myFile;
 		string Line;
@@ -518,7 +518,7 @@ void Add_Driver()
 		cout << "New driver added\n\n";
 		DriversMenu_A();
 }
-void Delete_Driver()
+void DeleteDriver()
 {
 	string Delete_Line, Line;
 
@@ -578,10 +578,10 @@ void LostFound_A()//Michal
 int Option;
 
 	cout << "\t|LOST AND FOUND PORTAL|\n\n" << endl;
-	cout << "| Press 1 to - View all Lost&Found items" << endl;
+	cout << "| Press 1 to - View Lost & Found" << endl;
 	cout << "| Press 2 to - Add item" << endl;
 	cout << "| Press 3 to - Remove item" << endl;
-	cout << "| Press 4 to - Back to Admin Portal" << endl;
+	cout << "| Press 4 to - Main Menu" << endl;
 	cout << "\n\t Option: ";
 	cin >> Option;
 	cout << endl;
@@ -590,15 +590,15 @@ int Option;
 	{
 	case 1:
 		system("cls");
-		See_LostFound();
+		SeeLostFound();
 
 	case 2:
 		system("cls");
-		Add_Item();
+		AddItem();
 
 	case 3:
 		system("cls");
-		Delete_Item();
+		DeleteItem();
 
 	case 4:
 		system("cls");
@@ -609,11 +609,11 @@ int Option;
 		cout << "Please pick a valid option." << endl;
 	}
 }
-void See_LostFound()
+void SeeLostFound()
 {
 	fstream myFile;
 		myFile.open ("LostAndFound.txt", ios::in); 
-		cout << "\t| LostAndFound Portal|\n\n" << endl;
+		cout << "\t| Lost & Found Portal|\n\n" << endl;
 		cout << "Lost and Found Items:\n\n";
 		if (myFile.is_open()) 
 		{
@@ -628,7 +628,7 @@ void See_LostFound()
 			LostFound_A();
 		}
 }
-void Add_Item()
+void AddItem()
 {
 fstream myFile;
 		string Line, Dname, LostItem;
@@ -647,10 +647,10 @@ fstream myFile;
 		myFile.close();
 		system("cls");
 		cout << "\t| Message Feed |\n" << endl;
-		cout << "New Item Added to Lost And Found\n\n";
+		cout << " * New item added!\n\n";
 		LostFound_A();
 }
-void Delete_Item()
+void DeleteItem()
 {
 string Delete_Line, Line, LostItem, Dname;
 
@@ -682,7 +682,7 @@ string Delete_Line, Line, LostItem, Dname;
 	rename ("outfile.txt", "LostAndFound.txt");
 	system("cls");
 	cout << "\t| Message Feed |\n" << endl;
-	cout << "Selected item has been deleted.\n\n" << endl;
+	cout << " * Item removed!\n\n" << endl;
 	LostFound_A();
 }
 
