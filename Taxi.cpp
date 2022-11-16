@@ -384,7 +384,21 @@ void Delete_Driver()
 
 void BookedTrips_A()//Michal
 {
-
+fstream myFile;
+		myFile.open ("BookedTrips.txt", ios::in); 
+		cout << "All booked trips:\n\n";
+		if (myFile.is_open()) 
+		{
+			string Line;
+			while (getline(myFile, Line))
+			{
+				cout << Line << endl;
+			}
+			myFile.close();
+			system("pause");
+			system("cls");
+			Portal_A();
+		}
 }
 void LostFound_A()//Michal
 {
