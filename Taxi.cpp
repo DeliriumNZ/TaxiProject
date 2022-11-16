@@ -200,7 +200,7 @@ void Portal_U()
 		break;
 	default:
 		cout << "Please pick a valid option." << endl;
-		Portal_A();
+		Portal_U();
 	}
 }
 void BookTrip_U()//Henry
@@ -350,7 +350,17 @@ string NameUser, NameDriver;
 }
 void LostFound_U()//Henry
 {
-
+	string Read;
+	cout << "\t| User Taxi Portal - Lost and Found |\n\n" << endl;
+	ifstream OpenLandF("LostandFound.txt");
+	while (getline(OpenLandF, Read))
+	{
+		cout << Read << '\n'; //Reads each line and prints in same format
+	}
+	cout << " " << endl;
+	system("pause");
+	system("cls");
+	Portal_U();
 }
 
 //Admin Functions
@@ -433,6 +443,7 @@ fstream myFile;
 			Portal_A();
 		}
 }
+
 void DriversMenu_A()//Michal
 {
 	int Option;
@@ -561,6 +572,7 @@ fstream myFile;
 			Portal_A();
 		}
 }
+
 void LostFound_A()//Michal
 {
 int Option;
@@ -616,7 +628,6 @@ void See_LostFound()
 			LostFound_A();
 		}
 }
-
 void Add_Item()
 {
 fstream myFile;
@@ -639,7 +650,6 @@ fstream myFile;
 		cout << "New Item Added to Lost And Found\n\n";
 		LostFound_A();
 }
-
 void Delete_Item()
 {
 string Delete_Line, Line, LostItem, Dname;
