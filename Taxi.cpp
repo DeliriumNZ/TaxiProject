@@ -9,6 +9,7 @@ void Registration();			//Nathan - DONE
 void Login_U();					//Nathan - DONE
 void Portal_U();				//Nathan - DONE
 void BookTrip_U();				//Henry - NOT DONE
+void ViewTrip_U();
 void CalcTrip_U();				//Henry - NOT DONE
 void Complaint_U();				//Henry - NOT DONE
 void LostFound_U();				//Henry - NOT DONE
@@ -80,7 +81,7 @@ void Registration() //Nathan
 	cout << "User Name: ";
 	cin >> New_Name;
 
-	while (strcmp(New_Name, Current_Name))
+	while (strcmp (New_Name, Current_Name))
 	{
 		View >> Current_Name;		//If name not taken, allows password to be entered
 		if (View.eof())
@@ -125,7 +126,7 @@ void Login_U()//Nathan
 	cout << "User Name: ";
 	cin >> Login_Name;
 
-	while (strcmp(Login_Name, User_Name))		//
+	while (strcmp(Login_Name,User_Name))		//
 	{
 		View >> User_Name;
 		if (View.eof())		//If end of file & name not found show error
@@ -159,9 +160,10 @@ void Portal_U()
 	int Option;
 	cout << "| Press 1 to - Book a trip	" << endl;
 	cout << "| Press 2 to - View booked trips" << endl;
-	cout << "| Press 3 to - Submit a complaint" << endl;
-	cout << "| Press 4 to - See Lost & Found" << endl;
-	cout << "| Press 5 to - Logout" << endl;
+	cout << "| Press 3 to - Cal Trip" << endl; //WIP
+	cout << "| Press 4 to - Submit a complaint" << endl;
+	cout << "| Press 5 to - See Lost & Found" << endl;
+	cout << "| Press 6 to - Logout" << endl;
 	cout << "\n\n\t Option: ";
 	cin >> Option;
 	cout << endl;
@@ -173,17 +175,20 @@ void Portal_U()
 		break;
 	case 2:
 		system("cls");
-		CalcTrip_U();
+		ViewTrip_U();
 		break;
 	case 3:
 		system("cls");
+		Portal_A();
+	case 4:
+		system("cls");
 		Complaint_U();
 		break;
-	case 4:
+	case 5:
 		system("cls");
 		LostFound_U();
 		break;
-	case 5:
+	case 6:
 		system("cls");
 		main();
 		break;
@@ -195,6 +200,52 @@ void Portal_U()
 void BookTrip_U()//Henry
 {
 
+}
+void ViewTrip_U()
+{
+	char Line[1000];
+	int i = 0;
+	char Input_Name[20];
+	char Find_Name[20];
+	string Test;
+
+	ifstream Open("BookedTrips.txt", ios::in);
+	if (!Open)
+	{
+		system("cls");
+		cout << "\t| Message Feed |\n\n" << endl;
+		cout << "Input file failed to open\n";
+		Portal_A();
+	}
+
+	system("cls");
+	cout << "\t| View Booked Trips |\n\n" << endl;
+	cout << "Enter your user name: ";
+	cin >> Input_Name;
+
+	while (strcmp (Input_Name, Find_Name))
+	{
+		Open >> Find_Name;
+		if (Open.eof())
+		{
+			system("cls");
+			cout << "\t| Message Feed |\n\n" << endl;
+			cout << "	* User name not found!\n\n";
+			Portal_U();
+		}
+		
+	}
+
+	if (Open.is_open())
+	{
+
+		Open >> Test;
+		cout << Test << endl;
+		system("pause");
+	}
+
+
+	
 }
 void CalcTrip_U()//Henry
 {
@@ -375,7 +426,7 @@ void Delete_Driver()
 	In.close();
 	Out.close();
 	remove("Drivers.txt");
-	rename("outfile.txt", "Drivers.txt");
+	rename ("outfile.txt", "Drivers.txt");
 	system("cls");
 	cout << "\t| Message Feed |\n" << endl;
 	cout << "Selected driver has been deleted.\n\n" << endl;
