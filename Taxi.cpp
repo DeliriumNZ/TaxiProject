@@ -78,7 +78,7 @@ void Registration() //Nathan
 	if (!View)		//Checks to see if file did not open
 	{
 		cout << "\t| Message Feed |\n" << endl;
-		cout << "Login data file was not loaded..." << endl;
+		cout << "	* Login data file was not loaded!" << endl;
 		main();
 	}
 
@@ -99,14 +99,14 @@ void Registration() //Nathan
 			Write.close();
 			system("cls");
 			cout << "\t| Message Feed |\n" << endl;
-			cout << "   * Registration Successful!\n\n" << endl;
+			cout << "	* Registration Successful!\n\n" << endl;
 			main();
 		}
 	}
 	//If Name taken show error and goto main menu
 	system("cls");
 	cout << "\t| Message Feed |\n" << endl;
-	cout << "   * Sorry Name Taken\n\n" << endl;
+	cout << "	* Sorry Name Taken!\n\n" << endl;
 	main();
 }
 
@@ -312,7 +312,7 @@ string NameUser, NameDriver;
 	cout << "| Please enter the follow details...\n";
 	cout << "| Customer Name: ";
 	cin >> NameUser;
-	cout << "| Driver Name: ";
+	cout << "| Drivers Name: ";
 	cin >> NameDriver;
 	cout << "| Date (ddmmyyyy): " << endl;
 	cout << "| Day: ";
@@ -352,6 +352,7 @@ void LostFound_U()//Henry
 {
 	string Read;
 	cout << "\t| User Taxi Portal - Lost and Found |\n\n" << endl;
+	cout << "Lost and Found Items:\n\n";
 	ifstream OpenLandF("LostandFound.txt");
 	while (getline(OpenLandF, Read))
 	{
@@ -429,7 +430,7 @@ void RegisteredCustomers_A()//Michal
 {
 fstream myFile;
 		myFile.open ("Records.txt", ios::in); 
-		cout << "All registered customers:\n\n";
+		cout << "\t|	Registered Customers	|\n\n" << endl;
 		if (myFile.is_open()) 
 		{
 			string Line;
@@ -515,7 +516,7 @@ void AddDriver()
 		myFile.close();
 		system("cls");
 		cout << "\t| Message Feed |\n" << endl;
-		cout << "New driver added\n\n";
+		cout << "	* New driver added\n\n";
 		DriversMenu_A();
 }
 void DeleteDriver()
@@ -547,7 +548,7 @@ void DeleteDriver()
 	rename ("outfile.txt", "Drivers.txt");
 	system("cls");
 	cout << "\t| Message Feed |\n" << endl;
-	cout << "Selected driver has been deleted.\n\n" << endl;
+	cout << "	* Selected driver has been deleted.\n\n" << endl;
 	DriversMenu_A();
 }
 
@@ -555,8 +556,6 @@ void BookedTrips_A()//Michal
 {
 fstream myFile;
 		myFile.open ("BookedTrips.txt", ios::in); 
-		cout << "All booked trips:\n\n";
-
 		cout << "\t| View the booked trips |\n\n" << endl;
 		cout << "Booked Trips:\n\n";
 		if (myFile.is_open()) 
@@ -613,7 +612,7 @@ void SeeLostFound()
 {
 	fstream myFile;
 		myFile.open ("LostAndFound.txt", ios::in); 
-		cout << "\t| Lost & Found Portal|\n\n" << endl;
+		cout << "\t| Admin Taxi Portal - Lost and Found |\n\n" << endl;
 		cout << "Lost and Found Items:\n\n";
 		if (myFile.is_open()) 
 		{
@@ -690,7 +689,7 @@ void Complaints_A()//Michal
 {
 fstream myFile;
 		myFile.open ("Complaints.txt", ios::in); 
-		cout << "All customer complaints:\n\n";
+		cout << "\t| Admin Taxi Portal - Complaints |\n\n" << endl;
 		if (myFile.is_open()) 
 		{
 			string Line;
