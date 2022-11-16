@@ -6,3 +6,10 @@
  Pick up Location: Home
  Drop off Location: Town
 =======
+=======
+ NAME: UserTesting
+ DATE: 18/11/2022
+ TIME: 1230
+ Pick up Location: 15 Main Road New Plymouth
+ Drop off Location: 56 Housing Place New Plymouth
+=======
