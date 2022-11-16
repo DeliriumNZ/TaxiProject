@@ -556,7 +556,7 @@ void BookedTrips_A()//Michal
 {
 fstream myFile;
 		myFile.open ("BookedTrips.txt", ios::in); 
-		cout << "\t| View the booked trips |\n\n" << endl;
+		cout << "\t| Admin Taxi Portal - Booked Trips |\n\n" << endl;
 		cout << "Booked Trips:\n\n";
 		if (myFile.is_open()) 
 		{
