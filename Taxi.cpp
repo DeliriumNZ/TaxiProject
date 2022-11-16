@@ -402,7 +402,21 @@ void Portal_A()//Nathan
 }
 void RegisteredCustomers_A()//Michal
 {
-
+fstream myFile;
+		myFile.open ("Records.txt", ios::in); 
+		cout << "All registered customers:\n\n";
+		if (myFile.is_open()) 
+		{
+			string Line;
+			while (getline(myFile, Line))
+			{
+				cout << Line << endl;
+			}
+			myFile.close();
+			system("pause");
+			system("cls");
+			Portal_A();
+		}
 }
 void DriversMenu_A()//Michal
 {
