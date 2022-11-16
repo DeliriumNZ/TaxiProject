@@ -23,7 +23,10 @@ void Add_Driver();
 void Delete_Driver();
 void BookedTrips_A();			//Michal - NOT DONE
 void LostFound_A();				//Michal - NOT DONE
-void Complaints_A();			//Michal - NOT DONE
+void Complaints_A();
+void See_LostFound();
+void Add_Item();
+void Delete_Item();			//Michal - NOT DONE
 //End of function calls
 
 int main() //Nathan
@@ -548,8 +551,119 @@ fstream myFile;
 }
 void LostFound_A()//Michal
 {
+int Option;
 
+	cout << "\t|LOST AND FOUND PORTAL|\n\n" << endl;
+	cout << "| Press 1 to - View all Lost&Found items" << endl;
+	cout << "| Press 2 to - Add item" << endl;
+	cout << "| Press 3 to - Remove item" << endl;
+	cout << "| Press 4 to - Back to Admin Portal" << endl;
+	cout << "\n\t Option: ";
+	cin >> Option;
+	cout << endl;
+
+	switch (Option)
+	{
+	case 1:
+		system("cls");
+		See_LostFound();
+
+	case 2:
+		system("cls");
+		Add_Item();
+
+	case 3:
+		system("cls");
+		Delete_Item();
+
+	case 4:
+		system("cls");
+		Portal_A();
+
+	default:
+		system("cls");
+		cout << "Please pick a valid option." << endl;
+	}
 }
+void See_LostFound()
+{
+	fstream myFile;
+		myFile.open ("LostAndFound.txt", ios::in); 
+		cout << "\t| LostAndFound Portal|\n\n" << endl;
+		cout << "Lost and Found Items:\n\n";
+		if (myFile.is_open()) 
+		{
+			string Line;
+			while (getline(myFile, Line))
+			{
+				cout << Line << endl;
+			}
+			myFile.close();
+			system("pause");
+			system("cls");
+			LostFound_A();
+		}
+}
+
+void Add_Item()
+{
+fstream myFile;
+		string Line, Dname, LostItem;
+		cout << "\t| Lost and Found Portal|\n\n" << endl;
+		cout << "Item name: ";
+		cin >> LostItem;
+		LostItem = LostItem + " ";
+		cout << "Driver name: ";
+		cin >> Dname;
+		Line = LostItem + Dname;
+		myFile.open ("LostAndFound.txt", ios::app); 
+		if (myFile.is_open())
+		{
+			myFile << Line << endl;
+		}
+		myFile.close();
+		system("cls");
+		cout << "\t| Message Feed |\n" << endl;
+		cout << "New Item Added to Lost And Found\n\n";
+		LostFound_A();
+}
+
+void Delete_Item()
+{
+string Delete_Line, Line, LostItem, Dname;
+
+	ifstream In ("LostAndFound.txt");
+	if (!In.is_open())
+	{
+		system("cls");
+		cout << "\t| Message Feed |\n\n" << endl;
+		cout << "Input file failed to open\n";
+		DriversMenu_A();
+	}
+
+	ofstream Out("outfile.txt");
+	cout << "\t| Lost and Found Portal|\n" << endl;
+	cout << "Item name: ";
+	cin >> LostItem;
+	LostItem = LostItem + " ";
+	cout << "Driver name: ";
+	cin >> Dname;
+	Delete_Line = LostItem + Dname;
+	while (getline(In, Line))
+	{
+		if (Line != Delete_Line)
+		Out << Line << endl;
+	}
+	In.close();
+	Out.close();
+	remove("LostAndFound.txt");
+	rename ("outfile.txt", "LostAndFound.txt");
+	system("cls");
+	cout << "\t| Message Feed |\n" << endl;
+	cout << "Selected item has been deleted.\n\n" << endl;
+	LostFound_A();
+}
+
 void Complaints_A()//Michal
 {
 fstream myFile;
