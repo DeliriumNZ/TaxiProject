@@ -1,7 +1,1 @@
-=======
- NAME: Michal
- DATE: 1682549930/32766/-312000176
- TIME: 1200
- Pick up Location: Christchurch
- Drop off Location: Auckland
-=======
+
