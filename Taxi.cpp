@@ -292,6 +292,45 @@ void CalcTrip_U()//Henry
 }
 void Complaint_U()//Henry
 {
+string NameUser, NameDriver;
+	string Complaint;
+	int Day, Month, Year;
+
+	cout << "\t| User Taxi Portal - Submit a Complaint |\n\n" << endl;
+	cout << "| Please enter the follow details...\n";
+	cout << "| Customer Name: ";
+	cin >> NameUser;
+	cout << "| Driver Name: ";
+	cin >> NameDriver;
+	cout << "| Date (ddmmyyyy): " << endl;
+	cin >> Day;
+	cin >> Month;
+	cin >> Year;
+	cin.ignore();
+	cout << "|Complaint: " << endl;
+	getline(cin, Complaint);
+
+	cout << "\n| Is this information correct?\n| Enter Y to confirm or N to re enter: ";
+	char info;
+	cin >> info;
+	if (info == 'y' || info == 'Y')
+	{
+		ofstream Complaints("Complaints.txt", ios::app);
+		Complaints << "=======" << endl;
+		Complaints << " Customer Name: " << NameUser << endl;
+		Complaints << " Driver Name: " << NameDriver << endl;
+		Complaints << " Date: " << Day << "/" << Month << "/" << Year << endl;
+		Complaints << " Complaint: " << Complaint << endl;
+		Complaints << "=======" << endl;
+		system("cls");
+		cout << "Complaint Sent";
+		Portal_U();
+	}
+	else
+	{
+		system("cls");
+		Complaint_U();
+	}
 
 }
 void LostFound_U()//Henry
@@ -476,12 +515,10 @@ void BookedTrips_A()//Michal
 {
 fstream myFile;
 		myFile.open ("BookedTrips.txt", ios::in); 
-<<<<<<< Updated upstream
 		cout << "All booked trips:\n\n";
-=======
+
 		cout << "\t| View the booked trips |\n\n" << endl;
 		cout << "Booked Trips:\n\n";
->>>>>>> Stashed changes
 		if (myFile.is_open()) 
 		{
 			string Line;
@@ -501,5 +538,19 @@ void LostFound_A()//Michal
 }
 void Complaints_A()//Michal
 {
-
+fstream myFile;
+		myFile.open ("Complaints.txt", ios::in); 
+		cout << "All customer complaints:\n\n";
+		if (myFile.is_open()) 
+		{
+			string Line;
+			while (getline(myFile, Line))
+			{
+				cout << Line << endl;
+			}
+			myFile.close();
+			system("pause");
+			system("cls");
+			Portal_A();
+		}
 }
