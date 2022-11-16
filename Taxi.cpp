@@ -194,6 +194,45 @@ void Portal_U()
 }
 void BookTrip_U()//Henry
 {
+string Name, PickUp, DropOff, Date;
+	int Time, Day, Month, Year;
+
+	cout << "\t| User Taxi Portal - Book a Trip |\n\n" << endl;
+	cout << "| Please enter the follow details...\n";
+	cout << "| Customer Name: ";
+	cin >> Name;
+	cout << "| Date (ddmmyyyy): ";
+	cin >> Date;
+	cout << "| Time (1530): ";
+	cin >> Time;
+	cin.ignore();
+	cout << "| Pick up location: ";
+	getline(cin, PickUp);
+	cout << "| Drop off location: ";
+	getline(cin, DropOff);
+	cout << "\n| Is this information correct?\n| Enter Y to confirm or N to re enter: ";
+	char info;
+	cin >> info;
+	if (info == 'y' || info == 'Y')
+	{
+		ofstream BookedTrips("BookedTrips.txt", ios::app);
+		BookedTrips << "=======" << endl;
+		BookedTrips << " NAME: " << Name << endl;
+		BookedTrips << " DATE: " << Day << "/" << Month << "/" << Year << endl;
+		BookedTrips << " TIME: " << Time << endl;
+		BookedTrips << " Pick up Location: " << PickUp << endl;
+		BookedTrips << " Drop off Location: " << DropOff << endl;
+		BookedTrips << "=======" << endl;
+		BookedTrips.close();
+		system("cls");
+		cout << "Trip Booked";
+		Portal_U();
+	}
+	else
+	{
+		system("cls");
+		BookTrip_U();
+	}
 
 }
 void CalcTrip_U()//Henry
@@ -386,7 +425,12 @@ void BookedTrips_A()//Michal
 {
 fstream myFile;
 		myFile.open ("BookedTrips.txt", ios::in); 
+<<<<<<< Updated upstream
 		cout << "All booked trips:\n\n";
+=======
+		cout << "\t| View the booked trips |\n\n" << endl;
+		cout << "Booked Trips:\n\n";
+>>>>>>> Stashed changes
 		if (myFile.is_open()) 
 		{
 			string Line;
