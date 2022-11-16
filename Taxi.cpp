@@ -4,31 +4,31 @@
 using namespace std;
 
 //Calling all functions first
-void Registration();			//Nathan - DONE
+void Registration();
 
 //User Functions
-void Login_U();					//Nathan - DONE
-void Portal_U();				//Nathan - DONE
-void BookTrip_U();				//Henry	 - DONE
-void ViewTrip_U();				//Nathan - NOT DONE
-void CalcTrip_U();				//Henry - NOT DONE
-void Complaint_U();				//Henry - DONE
-void LostFound_U();				//Henry - NOT DONE
+void Login_U();
+void Portal_U();
+void BookTrip_U();
+void ViewTrip_U();
+void CalcTrip_U();
+void Complaint_U();
+void LostFound_U();
 
 //Admin Functions
-void Login_A();					//Nathan - DONE
-void Portal_A();				//Nathan - DONE
-void RegisteredCustomers_A();	//Michal - DONE
-void DriversMenu_A();			//Michal - DONE
-void SeeDrivers();				//Michal - DONE
-void AddDriver();				//Michal - DONE
-void DeleteDriver();			//Michal - DONE
-void BookedTrips_A();			//Michal - DONE
-void LostFound_A();				//Michal - DONE
-void SeeLostFound();			//Michal - DONE
-void AddItem();				//Michal - DONE
-void DeleteItem();				//Michal - DONE
-void Complaints_A();			//Michal - DONE
+void Login_A();
+void Portal_A();
+void RegisteredCustomers_A();
+void DriversMenu_A();
+void SeeDrivers();
+void AddDriver();
+void DeleteDriver();
+void BookedTrips_A();
+void LostFound_A();
+void SeeLostFound();
+void AddItem();
+void DeleteItem();
+void Complaints_A();			
 
 //End of function calls
 
