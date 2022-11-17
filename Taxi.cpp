@@ -251,7 +251,7 @@ string Name, PickUp, DropOff, Date;
 	}
 
 }
-void ViewTrip_U()
+void ViewTrip_U()//Henry
 {
 	//WIP Nathan doing (badly hahaha)
 	char Line[1000];
@@ -300,7 +300,25 @@ void ViewTrip_U()
 }
 void CalcTrip_U()//Henry
 {
+     int distance, time;
+	float cost = 0;
 
+	cin >> distance;
+
+	if (distance > 10)
+	{
+		cost = 6 + (10 - 2) * 1.8 + (distance - 10) * 1.8 * 1.5;
+	}
+	else
+	{
+		if (distance > 2)     cost = 6 + (distance - 2) * 1.8;
+		else                  cost = 6;
+
+	}
+	cin >> time;
+	cost += (time / 3) * 1;
+	cout << cost << endl;
+		
 }
 void Complaint_U()//Henry
 {
