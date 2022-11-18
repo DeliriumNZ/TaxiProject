@@ -185,7 +185,7 @@ void Portal_U()
 		break;
 	case 3:
 		system("cls");
-		Portal_A();
+		CalcTrip_U();
 	case 4:
 		system("cls");
 		Complaint_U();
@@ -300,25 +300,33 @@ void ViewTrip_U()//Henry
 }
 void CalcTrip_U()//Henry
 {
-     int distance, time;
-	float cost = 0;
+    int Time;
+	float Distance;
+	float Cost = 0;
+	cout << "\t| Trip Cost Calculator |\n\n" << endl;
+	cout << "Enter how many Kms you wish to travle: ";
+	cin >> Distance;
 
-	cin >> distance;
-
-	if (distance > 10)
+	if (Distance > 10)
 	{
-		cost = 6 + (10 - 2) * 1.8 + (distance - 10) * 1.8 * 1.5;
+		Cost = 6 + (10 - 2) * 1.8 + (Distance - 10) * 1.8 * 1.5;
 	}
 	else
 	{
-		if (distance > 2)     cost = 6 + (distance - 2) * 1.8;
-		else                  cost = 6;
+		if (Distance > 2)
+			Cost = 6 + (Distance - 2) * 1.8;
+		else
+			Cost = 6;
 
 	}
-	cin >> time;
-	cost += (time / 3) * 1;
-	cout << cost << endl;
-		
+	cout << "\nEnter the trip time (minutes): ";
+	cin >> Time;
+	Cost += (Time / 3) * 1;
+	cout << "\nThe cost of your trip is: $";
+	cout << Cost << endl;
+	system("pause");
+	system("cls");
+	Portal_U();
 }
 void Complaint_U()//Henry
 {
