@@ -10,7 +10,6 @@ void Registration();
 void Login_U();
 void Portal_U();
 void BookTrip_U();
-void ViewTrip_U();
 void CalcTrip_U();
 void Complaint_U();
 void LostFound_U();
@@ -165,11 +164,10 @@ void Portal_U()
 	cout << "\t| User Taxi Portal |\n\n" << endl;
 	int Option;
 	cout << "| Press 1 to - Book a Trip	" << endl;
-	cout << "| Press 2 to - View Booked Trips" << endl;
-	cout << "| Press 3 to - Calculate Trip" << endl; //WIP
-	cout << "| Press 4 to - Submit a Complaint" << endl;
-	cout << "| Press 5 to - Lost & Found" << endl;
-	cout << "| Press 6 to - Logout" << endl;
+	cout << "| Press 2 to - Calculate Trip" << endl; //WIP
+	cout << "| Press 3 to - Submit a Complaint" << endl;
+	cout << "| Press 4 to - Lost & Found" << endl;
+	cout << "| Press 5 to - Logout" << endl;
 	cout << "\n\n\t Option: ";
 	cin >> Option;
 	cout << endl;
@@ -181,20 +179,16 @@ void Portal_U()
 		break;
 	case 2:
 		system("cls");
-		ViewTrip_U();
-		break;
-	case 3:
-		system("cls");
 		CalcTrip_U();
-	case 4:
+	case 3:
 		system("cls");
 		Complaint_U();
 		break;
-	case 5:
+	case 4:
 		system("cls");
 		LostFound_U();
 		break;
-	case 6:
+	case 5:
 		system("cls");
 		main();
 		break;
@@ -250,53 +244,6 @@ string Name, PickUp, DropOff, Date;
 		BookTrip_U();
 	}
 
-}
-void ViewTrip_U()//Henry
-{
-	//WIP Nathan doing (badly hahaha)
-	char Line[1000];
-	int i = 0;
-	char Input_Name[20];
-	char Find_Name[20];
-	string Test;
-
-	ifstream Open("BookedTrips.txt", ios::in);
-	if (!Open)
-	{
-		system("cls");
-		cout << "\t| Message Feed |\n\n" << endl;
-		cout << "Input file failed to open\n";
-		Portal_A();
-	}
-
-	system("cls");
-	cout << "\t| View Booked Trips |\n\n" << endl;
-	cout << "Enter your user name: ";
-	cin >> Input_Name;
-
-	while (strcmp (Input_Name, Find_Name))
-	{
-		Open >> Find_Name;
-		if (Open.eof())
-		{
-			system("cls");
-			cout << "\t| Message Feed |\n\n" << endl;
-			cout << "	* User name not found!\n\n";
-			Portal_U();
-		}
-		
-	}
-
-	if (Open.is_open())
-	{
-
-		Open >> Test;
-		cout << Test << endl;
-		system("pause");
-	}
-
-
-	
 }
 void CalcTrip_U()//Henry
 {
