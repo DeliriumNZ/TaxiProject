@@ -136,6 +136,8 @@ void Login_U()
 			main();
 		}
 	}
+	int Attempt = 1;
+	Attempt:
 	View >> User_Pass;
 	cout << "Password: ";
 	cin >> Login_Pass;
@@ -143,8 +145,16 @@ void Login_U()
 	{
 		system("cls");
 		cout << "\t| Message Feed |\n" << endl;
-		cout << "   * Incorrect Password!\n\n" << endl;
-		main();
+		cout << "   * Incorrect Password! " << "Attempt " << Attempt << " out of 3!\n\n" << endl;
+		Attempt = Attempt + 1;
+		if (Attempt == 4)
+		{
+			system("cls");
+			cout << "\t| Message Feed |\n" << endl;
+			cout << "   * 3 Incorrect Passwords!\n\n" << endl;
+			main();
+		}
+		goto Attempt;
 	}
 
 	//If name and pass correct then go to user menu
