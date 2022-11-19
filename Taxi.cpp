@@ -73,20 +73,14 @@ void Registration()
 	char New_Pass[20];
 	char Current_Name[20];
 
-	fstream View("Records.txt", ios::app);
-	if (!View)		//Checks to see if file did not open
-	{
-		cout << "\t| Message Feed |\n" << endl;
-		cout << "	* Login data file was not loaded!" << endl;
-		main();
-	}
+	fstream View("Records.txt", ios::in);
 
 	system("cls");
 	cout << "\t| Registration Menu |\n\n" << endl;
 	cout << "User Name: ";
 	cin >> New_Name;
 
-	while (strcmp (New_Name, Current_Name))
+	while (strcmp(New_Name, Current_Name))
 	{
 		View >> Current_Name;		//If name not taken, allows password to be entered
 		if (View.eof())
@@ -98,14 +92,14 @@ void Registration()
 			Write.close();
 			system("cls");
 			cout << "\t| Message Feed |\n" << endl;
-			cout << "	* Registration Successful!\n\n" << endl;
+			cout << "   * Registration Successful!\n\n" << endl;
 			main();
 		}
 	}
 	//If Name taken show error and goto main menu
 	system("cls");
 	cout << "\t| Message Feed |\n" << endl;
-	cout << "	* Sorry Name Taken!\n\n" << endl;
+	cout << "   * Sorry Name Taken\n\n" << endl;
 	main();
 }
 
@@ -193,6 +187,7 @@ void Portal_U()
 		main();
 		break;
 	default:
+		system("cls");
 		cout << "Please pick a valid option." << endl;
 		Portal_U();
 	}
@@ -396,6 +391,7 @@ void Portal_A()
 		system("cls");
 		main();
 	default:
+		system("cls");
 		cout << "Please pick a valid option." << endl;
 	}
 }
