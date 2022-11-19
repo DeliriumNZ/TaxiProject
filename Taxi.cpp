@@ -31,7 +31,7 @@ void Complaints_A();
 
 //End of function calls
 
-int main() //Nathan
+int main()
 {
 	int Option;
 	cout << "|-\tTAIX SYSTEM\t-|\n\n" << endl;
@@ -67,26 +67,20 @@ int main() //Nathan
 		main();
 	}
 }
-void Registration() //Nathan
+void Registration()
 {
 	char New_Name[20];
 	char New_Pass[20];
 	char Current_Name[20];
 
-	fstream View("Records.txt", ios::app);
-	if (!View)		//Checks to see if file did not open
-	{
-		cout << "\t| Message Feed |\n" << endl;
-		cout << "	* Login data file was not loaded!" << endl;
-		main();
-	}
+	fstream View("Records.txt", ios::in);
 
 	system("cls");
 	cout << "\t| Registration Menu |\n\n" << endl;
 	cout << "User Name: ";
 	cin >> New_Name;
 
-	while (strcmp (New_Name, Current_Name))
+	while (strcmp(New_Name, Current_Name))
 	{
 		View >> Current_Name;		//If name not taken, allows password to be entered
 		if (View.eof())
@@ -98,20 +92,20 @@ void Registration() //Nathan
 			Write.close();
 			system("cls");
 			cout << "\t| Message Feed |\n" << endl;
-			cout << "	* Registration Successful!\n\n" << endl;
+			cout << "   * Registration Successful!\n\n" << endl;
 			main();
 		}
 	}
 	//If Name taken show error and goto main menu
 	system("cls");
 	cout << "\t| Message Feed |\n" << endl;
-	cout << "	* Sorry Name Taken!\n\n" << endl;
+	cout << "   * Sorry Name Taken\n\n" << endl;
 	main();
 }
 
 
 //User Functions:
-void Login_U()//Nathan
+void Login_U()
 {
 	char Login_Name[20];		//User Input
 	char Login_Pass[20];		//User Input
@@ -142,6 +136,8 @@ void Login_U()//Nathan
 			main();
 		}
 	}
+	int Attempt = 1;
+	Attempt:
 	View >> User_Pass;
 	cout << "Password: ";
 	cin >> Login_Pass;
@@ -149,8 +145,16 @@ void Login_U()//Nathan
 	{
 		system("cls");
 		cout << "\t| Message Feed |\n" << endl;
-		cout << "   * Incorrect Password!\n\n" << endl;
-		main();
+		cout << "   * Incorrect Password! " << "Attempt " << Attempt << " out of 3!\n\n" << endl;
+		Attempt = Attempt + 1;
+		if (Attempt == 4)
+		{
+			system("cls");
+			cout << "\t| Message Feed |\n" << endl;
+			cout << "   * 3 Incorrect Passwords!\n\n" << endl;
+			main();
+		}
+		goto Attempt;
 	}
 
 	//If name and pass correct then go to user menu
@@ -193,11 +197,12 @@ void Portal_U()
 		main();
 		break;
 	default:
+		system("cls");
 		cout << "Please pick a valid option." << endl;
 		Portal_U();
 	}
 }
-void BookTrip_U()//Henry
+void BookTrip_U()
 {
 string Name, PickUp, DropOff, Date;
 	int Time, Day, Month, Year;
@@ -245,7 +250,7 @@ string Name, PickUp, DropOff, Date;
 	}
 
 }
-void CalcTrip_U()//Henry
+void CalcTrip_U()
 {
     int Time;
 	float Distance;
@@ -275,7 +280,7 @@ void CalcTrip_U()//Henry
 	system("cls");
 	Portal_U();
 }
-void Complaint_U()//Henry
+void Complaint_U()
 {
 string NameUser, NameDriver;
 	string Complaint;
@@ -321,7 +326,7 @@ string NameUser, NameDriver;
 	}
 
 }
-void LostFound_U()//Henry
+void LostFound_U()
 {
 	string Read;
 	cout << "\t| User Taxi Portal - Lost and Found |\n\n" << endl;
@@ -338,7 +343,7 @@ void LostFound_U()//Henry
 }
 
 //Admin Functions
-void Login_A()//Nathan
+void Login_A()
 {
 	string UserID, UserPassword;
 	system("cls");
@@ -360,7 +365,7 @@ void Login_A()//Nathan
 		main();
 	}
 }
-void Portal_A()//Nathan
+void Portal_A()
 {
 	int Option;
 
@@ -396,10 +401,11 @@ void Portal_A()//Nathan
 		system("cls");
 		main();
 	default:
+		system("cls");
 		cout << "Please pick a valid option." << endl;
 	}
 }
-void RegisteredCustomers_A()//Michal
+void RegisteredCustomers_A()
 {
 fstream myFile;
 		myFile.open ("Records.txt", ios::in); 
@@ -416,9 +422,10 @@ fstream myFile;
 			system("cls");
 			Portal_A();
 		}
+		Portal_A();
 }
 
-void DriversMenu_A()//Michal
+void DriversMenu_A()
 {
 	int Option;
 
@@ -472,6 +479,8 @@ void SeeDrivers()
 			system("cls");
 			DriversMenu_A();
 		}
+		else
+		DriversMenu_A();
 }
 void AddDriver() 
 {
@@ -525,7 +534,7 @@ void DeleteDriver()
 	DriversMenu_A();
 }
 
-void BookedTrips_A()//Michal
+void BookedTrips_A()
 {
 fstream myFile;
 		myFile.open ("BookedTrips.txt", ios::in); 
@@ -543,9 +552,10 @@ fstream myFile;
 			system("cls");
 			Portal_A();
 		}
+		Portal_A();
 }
 
-void LostFound_A()//Michal
+void LostFound_A()
 {
 int Option;
 
@@ -599,6 +609,7 @@ void SeeLostFound()
 			system("cls");
 			LostFound_A();
 		}
+		LostFound_A();
 }
 void AddItem()
 {
@@ -658,7 +669,7 @@ string Delete_Line, Line, LostItem, Dname;
 	LostFound_A();
 }
 
-void Complaints_A()//Michal
+void Complaints_A()
 {
 fstream myFile;
 		myFile.open ("Complaints.txt", ios::in); 
@@ -675,4 +686,5 @@ fstream myFile;
 			system("cls");
 			Portal_A();
 		}
+		LostFound_A();
 }
